@@ -42,6 +42,7 @@
             font-family: 'Playfair Display', serif;
             font-weight: bold;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
         .nav-links a:hover {
             color: #8a2be2;
@@ -59,6 +60,12 @@
         .contact-button:hover {
             background-color: #8a2be2;
             color: #ffffff;
+        }
+        .section {
+            display: none;
+        }
+        .active {
+            display: block;
         }
         .title-section {
             display: flex;
@@ -86,58 +93,37 @@
             width: 450px;
             border-radius: 15px;
         }
-        .about-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 100px 20px;
-            gap: 50px;
-            background-color: #ffffff;
+        .about-title-section {
+            position: relative;
+            text-align: center;
+            color: #ffffff;
+            padding: 100px 0;
         }
-        .about-section img {
+        .about-title-section img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            filter: brightness(60%);
+        }
+        .about-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4em;
+            font-family: 'Playfair Display', serif;
+        }
+        .about-section, .hobbies-section, .why-care-section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .about-section img, .why-care-section img {
             width: 400px;
             border-radius: 15px;
         }
-        .about-text {
+        .about-text, .why-care-text {
             max-width: 500px;
-        }
-        .about-text h2 {
-            font-size: 2.5em;
-            color: #333;
-            font-family: 'Playfair Display', serif;
-        }
-        .about-text p {
-            font-size: 1.2em;
-            color: #555;
-            font-family: 'Poppins', sans-serif;
-            margin-top: 20px;
-        }
-        .more-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            border: 2px solid #333;
-            border-radius: 25px;
-            text-decoration: none;
-            color: #333;
-            font-family: 'Poppins', sans-serif;
-            font-weight: bold;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .more-button:hover {
-            background-color: #333;
-            color: #ffffff;
-        }
-        .hobbies-section {
-            padding: 100px 20px;
-            text-align: center;
-            background-color: #f5eef2;
-        }
-        .hobbies-section h2 {
-            font-size: 2.5em;
-            color: #333;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 50px;
+            margin: auto;
         }
         .hobbies-container {
             display: flex;
@@ -155,39 +141,18 @@
             object-fit: cover;
             border-radius: 15px;
         }
-        .hobby p {
-            font-size: 1.1em;
-            color: #555;
-            font-family: 'Poppins', sans-serif;
-            margin-top: 10px;
-        }
-        .why-care-section {
-            padding: 100px 20px;
-            background-color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 50px;
-        }
-        .why-care-text {
-            max-width: 500px;
-        }
-        .why-care-text h2 {
-            font-size: 2.5em;
-            color: #333;
-            font-family: 'Playfair Display', serif;
-        }
-        .why-care-text p {
-            font-size: 1.2em;
-            color: #555;
-            font-family: 'Poppins', sans-serif;
-            margin-top: 20px;
-        }
-        .why-care-section img {
-            width: 450px;
-            border-radius: 15px;
-        }
     </style>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        window.onload = function() {
+            showSection('home-section');
+        };
+    </script>
 </head>
 <body>
     <header>
@@ -197,8 +162,8 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About Me</a></li>
+                <li><a onclick="showSection('home-section')">Home</a></li>
+                <li><a onclick="showSection('about-page')">About Me</a></li>
                 <li><a href="#">Skills</a></li>
                 <li><a href="#">Gallery</a></li>
                 <li><a href="#">Contact Me</a></li>
@@ -206,60 +171,65 @@
         </nav>
         <a href="#" class="contact-button">Contact Me</a>
     </header>
-    <section class="title-section">
-        <div class="title-text">
-            <h2>Hey, babygirl!</h2>
-            <p>I'm Ria, nice to meet you :)</p>
+
+    <!-- Home Section -->
+    <section id="home-section" class="section active">
+        <div class="title-section">
+            <div class="title-text">
+                <h2>Hey, babygirl!</h2>
+                <p>I'm Ria, nice to meet you :)</p>
+            </div>
+            <img src="profile_image_big.png" alt="Profile Image Big">
         </div>
-        <img src="profile_image_big.png" alt="Profile Image Big">
+        <div class="about-section">
+            <img src="about_me.png" alt="About Me Image">
+            <div class="about-text">
+                <h2>Who am I?</h2>
+                <p>I'm Ria! I am a 19-year-old Student at the University of Waterloo. I'm passionate about exploring new ideas, embracing my culture, and finding innovative solutions to everyday challenges. When I'm not studying or working, you can find me hanging out with friends, working on dance skills, or reading.</p>
+            </div>
+        </div>
+        <div class="hobbies-section">
+            <h2>Hobbies</h2>
+            <div class="hobbies-container">
+                <div class="hobby">
+                    <img src="steak.png" alt="Cooking">
+                    <p>Cooking</p>
+                </div>
+                <div class="hobby">
+                    <img src="reading.png" alt="Reading">
+                    <p>Reading</p>
+                </div>
+                <div class="hobby">
+                    <img src="dance.png" alt="Dance">
+                    <p>Dance</p>
+                </div>
+                <div class="hobby">
+                    <img src="travel.png" alt="Travel">
+                    <p>Travel</p>
+                </div>
+                <div class="hobby">
+                    <img src="nails.png" alt="Nail Art">
+                    <p>Nail Art</p>
+                </div>
+            </div>
+        </div>
+        <div class="why-care-section">
+            <div class="why-care-text">
+                <h2>Why should you care?</h2>
+                <p>As a retired competitive dancer, freelance photographer, nail artist, and business and digital arts university student, I am a part of the future. My unique blend of creativity, discipline, and entrepreneurial spirit allows me to excel in diverse areas, from perfecting intricate nail designs to capturing timeless moments through my lens.</p>
+                <p>I could marry your son, be your daughter's nail tech, or even take over your company one day—so why not get to know me now? Whether it’s on the dance floor, behind the camera, or strategizing the next big idea, I thrive on bringing innovation and passion to everything I do.</p>
+            </div>
+            <img src="sunset_dance.png" alt="Why Should You Care Image">
+        </div>
     </section>
-    <section id="about" class="about-section">
-        <img src="about_me.png" alt="About Me Image">
-        <div class="about-text">
-            <h2>Who am I?</h2>
-            <p>I'm Ria! I am a 19-year-old Student at the University of Waterloo. I'm passionate about exploring new ideas, embracing my culture, and finding innovative solutions to everyday challenges. When I'm not studying or working, you can find me hanging out with friends, working on dance skills, or reading.</p>
+
+    <!-- About Me Section -->
+    <section id="about-page" class="section">
+        <div class="about-title-section">
+            <img src="city_skyline.png" alt="City Skyline">
+            <h2 class="about-title">About me</h2>
         </div>
     </section>
-    <section class="hobbies-section">
-        <h2>Hobbies</h2>
-        <div class="hobbies-container">
-            <div class="hobby">
-                <img src="steak.png" alt="Cooking">
-                <p>Cooking</p>
-            </div>
-            <div class="hobby">
-                <img src="reading.png" alt="Reading">
-                <p>Reading</p>
-            </div>
-            <div class="hobby">
-                <img src="dance.png" alt="Dance">
-                <p>Dance</p>
-            </div>
-            <div class="hobby">
-                <img src="travel.png" alt="Travel">
-                <p>Travel</p>
-            </div>
-            <div class="hobby">
-                <img src="nails.png" alt="Nail Art">
-                <p>Nail Art</p>
-            </div>
-        </div>
-    </section>
-    <section class="why-care-section">
-        <div class="why-care-text">
-            <h2>Why should you care?</h2>
-            <p>As a retired competitive dancer, freelance photographer, nail artist, and business and digital arts university student, I am a part of the future. My unique blend of creativity, discipline, and entrepreneurial spirit allows me to excel in diverse areas, from perfecting intricate nail designs to capturing timeless moments through my lens.</p>
-            <p>I could marry your son, be your daughter's nail tech, or even take over your company one day—so why not get to know me now? Whether it’s on the dance floor, behind the camera, or strategizing the next big idea, I thrive on bringing innovation and passion to everything I do.</p>
-        </div>
-        <img src="sunset_dance.png" alt="Why Should You Care Image">
-    </section>
-<footer style="background-color: #4a4a4a; color: #ffffff; text-align: center; padding: 20px; margin-top: 50px;">
-        <hr style="border: none; border-top: 1px solid #ffffff; margin-bottom: 15px;">
-        <p>&copy; 2024. Ria Kaur Anand. All Rights Reserved.</p>
-        <div style="margin-top: 10px;">
-            <a href="#" style="color: #ffffff; text-decoration: none; margin-right: 15px;">Privacy</a>
-            <a href="#" style="color: #ffffff; text-decoration: none;">Terms & Conditions</a>
-        </div>
-    </footer>
 </body>
 </html>
+
