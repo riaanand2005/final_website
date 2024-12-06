@@ -113,17 +113,42 @@
             font-size: 4em;
             font-family: 'Playfair Display', serif;
         }
-        .about-section, .hobbies-section, .why-care-section {
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 100px 20px;
-            text-align: center;
+            gap: 50px;
+            background-color: #ffffff;
         }
-        .about-section img, .why-care-section img {
+        .about-section img {
             width: 400px;
             border-radius: 15px;
         }
-        .about-text, .why-care-text {
+        .about-text {
             max-width: 500px;
-            margin: auto;
+        }
+        .about-text h2 {
+            font-size: 2.5em;
+            color: #333;
+            font-family: 'Playfair Display', serif;
+        }
+        .about-text p {
+            font-size: 1.2em;
+            color: #555;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 20px;
+        }
+        .hobbies-section {
+            padding: 100px 20px;
+            text-align: center;
+            background-color: #f5eef2;
+        }
+        .hobbies-section h2 {
+            font-size: 2.5em;
+            color: #333;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 50px;
         }
         .hobbies-container {
             display: flex;
@@ -139,6 +164,99 @@
             width: 150px;
             height: 150px;
             object-fit: cover;
+            border-radius: 15px;
+        }
+        .hobby p {
+            font-size: 1.1em;
+            color: #555;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 10px;
+        }
+        .why-care-section {
+            padding: 100px 20px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            flex-direction: row-reverse;
+        }
+        .why-care-text {
+            max-width: 600px;
+        }
+        .why-care-text h2 {
+            font-size: 2.5em;
+            color: #333;
+            font-family: 'Playfair Display', serif;
+        }
+        .why-care-text p {
+            font-size: 1.2em;
+            color: #555;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 20px;
+        }
+        .why-care-section img {
+            width: 400px;
+            border-radius: 15px;
+        }
+        .about-my-story {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+            gap: 50px;
+            background-color: #ffffff;
+        }
+        .about-my-story img {
+            width: 400px;
+            border-radius: 15px;
+        }
+        .story-text {
+            max-width: 600px;
+        }
+        .story-text h2 {
+            font-size: 2.5em;
+            color: #333;
+            font-family: 'Playfair Display', serif;
+        }
+        .story-text p {
+            font-size: 1.2em;
+            color: #555;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 20px;
+        }
+        .about-extra-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+            gap: 50px;
+            background-color: #f5eef2;
+        }
+        .about-extra-section img {
+            width: 400px;
+            border-radius: 15px;
+        }
+        .about-extra-text {
+            max-width: 500px;
+        }
+        .about-extra-text p {
+            font-size: 1.2em;
+            color: #555;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 20px;
+        }
+        .gallery-container {
+            padding: 100px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            background-color: #f5eef2;
+        }
+        .gallery-container img {
+            width: 100%;
+            height: auto;
             border-radius: 15px;
         }
     </style>
@@ -164,15 +282,14 @@
             <ul class="nav-links">
                 <li><a onclick="showSection('home-section')">Home</a></li>
                 <li><a onclick="showSection('about-page')">About Me</a></li>
-                <li><a href="#">Skills</a></li>
-                <li><a href="#">Gallery</a></li>
+                <li><a onclick="showSection('skills-page')">Skills</a></li>
+                <li><a onclick="showSection('gallery-page')">Gallery</a></li>
                 <li><a href="#">Contact Me</a></li>
             </ul>
         </nav>
         <a href="#" class="contact-button">Contact Me</a>
     </header>
 
-    <!-- Home Section -->
     <section id="home-section" class="section active">
         <div class="title-section">
             <div class="title-text">
@@ -223,13 +340,156 @@
         </div>
     </section>
 
-    <!-- About Me Section -->
     <section id="about-page" class="section">
         <div class="about-title-section">
             <img src="city_skyline.png" alt="City Skyline">
             <h2 class="about-title">About me</h2>
         </div>
+        <section class="about-my-story">
+            <div class="about-story-content" style="display: flex; align-items: center; justify-content: center; padding: 100px 20px; gap: 50px;">
+                <div class="story-text" style="max-width: 600px;">
+                    <h2 style="font-size: 2.5em; font-family: 'Playfair Display', serif; color: #333;">My Story</h2>
+                    <p style="font-size: 1.2em; font-family: 'Poppins', sans-serif; color: #555; margin-top: 20px;">
+                        I was born and raised in Ontario, Canada, to two incredible parents who both immigrated to Canada during their high school years. My parents met while studying sciences at the University of Toronto, and after graduating, they got married, moved to London, England, and returned to Canada 4 years later after having me!
+                    </p>
+                </div>
+                <img src="parents_image.png" alt="My Story Image" style="width: 400px; border-radius: 15px;">
+            </div>
+        </section>
+        <div class="about-extra-section">
+            <img src="simba_side.png" alt="Ria & Simba">
+            <div class="about-extra-text">
+                <p>I grew up in a lively household with two younger brothers and our beloved dog, Simba. My journey as a competitive dancer began when I was just 2 years old and continued until I graduated high school at 18. Dance played a significant role in shaping who I am, but over time, I realized it was more of a hobby than a lifelong career path.</p>
+            </div>
+        </div>
+        <div class="about-extra-section">
+            <div class="about-extra-text">
+                <p>As a child, I had a vivid imagination and an insatiable curiosity. I channelled my creativity into a variety of hobbies, from experimenting in the kitchen and honing homemaking skills to exploring visual and digital arts and mastering the art of public speaking.</p>
+            </div>
+            <img src="dance_split.png" alt="Dance Split">
+        </div>
+        <div class="about-extra-section">
+            <img src="family_memory.png" alt="Family Memory">
+            <div class="about-extra-text">
+                <p>These pursuits have helped me grow into a well-rounded, creative, and ambitious individual with a passion for learning and self-expression. Whether it’s through the arts, academia, or day-to-day life, I’m always looking for ways to push boundaries and leave my mark.</p>
+            </div>
+        </div>
     </section>
+
+    <section id="skills-page" class="section">
+        <div class="about-title-section">
+            <img src="city_skyline.png" alt="City Skyline">
+            <h2 class="about-title">Skills</h2>
+        </div>
+        <div class="skills-overview" style="text-align: center; padding: 50px 20px;">
+            <h2>What do I have to offer?</h2>
+            <div class="skills-container" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px;">
+                <div class="skill" style="background-color: #fadadd; padding: 30px; border-radius: 15px; width: 300px; text-align: center;">
+                    <h3>Technical Creativity</h3>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li>Adobe Suite</li>
+                        <li>Figma</li>
+                        <li>Microsoft Office</li>
+                        <li>eIVF</li>
+                        <li>Quickbooks</li>
+                    </ul>
+                </div>
+                <div class="skill" style="background-color: #fadadd; padding: 30px; border-radius: 15px; width: 300px; text-align: center;">
+                    <h3>Social Media Advertising</h3>
+                    <p>I worked part-time as a receptionist/pharmacy assistant at Markham Fertility Centre where I was also in charge of recording, editing, and posting promotional content for the office.</p>
+                </div>
+                <div class="skill" style="background-color: #fadadd; padding: 30px; border-radius: 15px; width: 300px; text-align: center;">
+                    <h3>Customer Service</h3>
+                    <p>I have 5+ years of experience working in customer-facing roles and have dealt with all kinds of conflict in the workplace.</p>
+                </div>
+                <div class="skill" style="background-color: #fadadd; padding: 30px; border-radius: 15px; width: 300px; text-align: center;">
+                    <h3>Public Speaking</h3>
+                    <p>Confidence is key to succeeding in presenting your ideas. Over the years through exposure such as being on stage and presenting to large audiences I am confident in my abilities to communicate my ideas effectively.</p>
+                </div>
+            </div>
+        </div>
+        <div class="about-extra-section" style="padding: 100px 20px; gap: 50px; background-color: #f5eef2;">
+            <div class="about-extra-text">
+                <h2>Dance</h2>
+                <p>I was a competitive dancer for 16 years of my life. It taught me important skills that will never leave me....</p>
+                <ul>
+                    <li>Confidence</li>
+                    <li>Resilience</li>
+                    <li>Discipline</li>
+                    <li>Time management</li>
+                    <li>Work Ethic</li>
+                </ul>
+            </div>
+            <img src="handstand.png" alt="Dance Image" style="width: 400px; border-radius: 15px;">
+        </div>
+        <div class="about-extra-section" style="padding: 100px 20px; gap: 50px; background-color: #f5eef2;">
+            <div class="about-extra-text">
+                <h2>Education</h2>
+                <div style="background-color: #FFF; padding: 20px; border-radius: 15px;">
+                    <p><strong>Bachelor of Global Business and Digital Arts</strong><br>University of Waterloo | 2023 - 2027</p>
+                </div>
+                <div style="background-color: #FFF; padding: 20px; border-radius: 15px; margin-top: 20px;">
+                    <p><strong>Ontario Secondary School Diploma</strong><br>Bill Hogarth Secondary School | 2019 - 2023</p>
+                </div>
+            </div>
+            <div class="about-extra-text">
+                <h2>Language Proficiency</h2>
+                <div style="background-color: #FFF; padding: 20px; border-radius: 15px;">
+                    <p><strong>English</strong> | Fluent</p>
+                </div>
+                <div style="background-color: #FFF; padding: 20px; border-radius: 15px; margin-top: 20px;">
+                    <p><strong>French</strong> | Fluent</p>
+                </div>
+                <div style="background-color: #FFF; padding: 20px; border-radius: 15px; margin-top: 20px;">
+                    <p><strong>Punjabi</strong> | Speaking</p>
+                </div>
+            </div>
+        </div>
+        <div class="about-extra-section" style="padding: 100px 20px; gap: 50px; background-color: #f5eef2;">
+            <img src="nail_art.png" alt="Nail Art Image" style="width: 400px; border-radius: 15px;">
+            <div class="about-extra-text">
+                <h2>Nail Art</h2>
+                <p>I am a self-taught nail artist who is proficient in...</p>
+                <ul>
+                    <li>Gelx</li>
+                    <li>Gel extensions</li>
+                    <li>Shellac</li>
+                    <li>Polygel</li>
+                    <li>3D Nail Design</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery-page" class="section">
+        <div class="about-title-section">
+            <img src="city_skyline.png" alt="City Skyline">
+            <h2 class="about-title">Gallery</h2>
+        </div>
+        <div class="gallery-container">
+            <img src="gallery_1.png" alt="Gallery Image 1">
+            <img src="gallery_2.png" alt="Gallery Image 2">
+            <img src="gallery_3.png" alt="Gallery Image 3">
+            <img src="gallery_4.png" alt="Gallery Image 4">
+            <img src="gallery_5.png" alt="Gallery Image 5">
+            <img src="gallery_6.png" alt="Gallery Image 6">
+            <img src="gallery_7.png" alt="Gallery Image 7">
+            <img src="gallery_8.png" alt="Gallery Image 8">
+            <img src="gallery_9.png" alt="Gallery Image 9">
+            <img src="gallery_10.png" alt="Gallery Image 10">
+            <img src="gallery_11.png" alt="Gallery Image 11">
+            <img src="gallery_12.png" alt="Gallery Image 12">
+        </div>
+    </section>
+
+    <footer>
+        <hr>
+        <p>&copy; 2024. Ria Kaur Anand. All Rights Reserved.</p>
+        <div>
+            <a href="#">Privacy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+    </footer>
 </body>
 </html>
 
